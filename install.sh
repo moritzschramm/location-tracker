@@ -13,8 +13,11 @@ cp mosquitto.conf /var/snap/mosquitto/common/
 
 # set username/password, create random password first
 echo "Creating user and password"
-head -c30 /dev/random | base64 > mosquitto_password.env
-mosquitto.passwd -b /var/snap/mosquitto/common/mosquitto_passwd control-server $(cat ./mosquitto_password.env)
+touch ./mosquitto-config/mosquitto_password.env
+chown control-server:control-server ./mosquitto-config/mosquitto_password.env
+chmod 600 ./mosquitto-config/mosquitto_password.env
+head -c30 /dev/random | base64 > ./mosquitto-config/mosquitto_password.env
+mosquitto.passwd -b /var/snap/mosquitto/common/mosquitto_passwd control-server $(cat ./mosquitto-config/mosquitto_password.env)
 
 # restart service
 echo "Restarting mosquitto service"
