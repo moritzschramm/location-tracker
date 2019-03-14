@@ -2,8 +2,8 @@
 
 # configuration variables
 SERVER_USERNAME="control-server"
-LOCAL_CONFIG_FILE="./mosquitto-config/mosquitto.conf"
-LOCAL_PASSWORD_FILE="./mosquitto-config/mosquitto_password.env"
+LOCAL_CONFIG_FILE="./config/mosquitto.conf"
+LOCAL_PASSWORD_FILE="./config/mosquitto_password.env"
 
 CONFIG_FILE="/etc/mosquitto/conf.d/custom-mosquitto.conf"
 PASSWD_FILE="/etc/mosquitto/passwd"
